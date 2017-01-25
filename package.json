@@ -1,0 +1,19 @@
+{
+  "name": "Either",
+  "version": "1.0.0",
+  "main": "js/Either",
+  "plugins": [
+    "lotus-coffee"
+  ],
+  "scripts": {
+    "build": "coffee-build -v 1.11.x -b -o js src",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "Validator": "aleclarson/Validator#1.1.1",
+    "cloneArgs": "aleclarson/cloneArgs#1.0.0",
+    "formatType": "aleclarson/formatType#1.0.0",
+    "isType": "aleclarson/isType#1.0.1",
+    "wrongType": "aleclarson/wrongType#1.0.0"
+  }
+}
