@@ -1,22 +1,23 @@
 
-# Typle v1.0.1 ![stable](https://img.shields.io/badge/stability-stable-4EBA0F.svg?style=flat)
+# Either v1.0.0 ![stable](https://img.shields.io/badge/stability-stable-4EBA0F.svg?style=flat)
 
-> A tuple of types (used for validation).
+The `Either` type creates `Validator` instances that test positive for any types you pass as arguments.
+
+[Learn more](https://github.com/aleclarson/Validator) about the `Validator` type.
 
 ```coffee
-Typle = require "Typle"
+Either = require "Either"
 
-types = Typle [ Number, Array ]
+NumberOrArray = Either Number, Array
 
-types.test 0  # => true
+NumberOrArray.test 0  # => true
 
-types.test [] # => true
+NumberOrArray.test [] # => true
 
-types.test {} # => false
+NumberOrArray.test {} # => false
 
-types.assert 0 # => undefined
+NumberOrArray.assert 0 # => undefined
 
-types.assert {} # => Error()
+NumberOrArray.assert {} # => TypeError()
 ```
 
-- Built with [aleclarson/Validator](https://github.com/aleclarson/Validator)
