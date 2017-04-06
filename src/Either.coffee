@@ -1,15 +1,15 @@
 
 formatType = require "formatType"
+sliceArray = require "sliceArray"
 Validator = require "Validator"
 wrongType = require "wrongType"
-cloneArgs = require "cloneArgs"
 isType = require "isType"
 
 module.exports =
 Either = Validator.Type "Either",
 
   init: ->
-    @types = cloneArgs arguments
+    @types = sliceArray arguments
 
   name: -> formatType @types
 
