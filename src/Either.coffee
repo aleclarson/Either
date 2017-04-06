@@ -5,11 +5,11 @@ Validator = require "Validator"
 wrongType = require "wrongType"
 isType = require "isType"
 
-module.exports =
 Either = Validator.Type "Either",
 
   init: ->
     @types = sliceArray arguments
+    return
 
   name: -> formatType @types
 
@@ -37,3 +37,5 @@ Either = Validator.Type "Either",
   assert: (value, key) ->
     return if @test value
     return wrongType @types, key
+
+module.exports = Either
