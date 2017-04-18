@@ -1,14 +1,17 @@
 
 formatType = require "formatType"
-sliceArray = require "sliceArray"
 Validator = require "Validator"
 wrongType = require "wrongType"
-isType = require "isType"
 
 Either = Validator.Type "Either",
 
   init: ->
-    @types = sliceArray arguments
+
+    types = []
+    for type in arguments
+      types.push type if type
+
+    @types = types
     return
 
   name: -> formatType @types
