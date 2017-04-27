@@ -1,0 +1,10 @@
+{
+  "name": "Either",
+  "version": "1.0.1",
+  "main": "js/Either",
+  "dependencies": {
+    "Validator": "aleclarson/Validator#1.1.1",
+    "formatType": "aleclarson/formatType#1.0.0",
+    "wrongType": "aleclarson/wrongType#1.0.0"
+  }
+}
