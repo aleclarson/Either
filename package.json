@@ -1,6 +1,6 @@
 {
   "name": "Either",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "js/Either",
   "plugins": [
     "lotus-coffee"
