@@ -1,6 +1,6 @@
 {
   "name": "Either",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "js/Either",
   "plugins": [
     "lotus-coffee"
@@ -10,8 +10,8 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "Validator": "aleclarson/Validator#1.1.1",
-    "formatType": "aleclarson/formatType#1.0.0",
-    "wrongType": "aleclarson/wrongType#1.0.0"
+    "Validator": "aleclarson/Validator#1.2.0",
+    "formatType": "aleclarson/formatType#1.1.0",
+    "wrongType": "aleclarson/wrongType#1.0.1"
   }
 }
