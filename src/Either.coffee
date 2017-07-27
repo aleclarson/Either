@@ -1,3 +1,4 @@
+# TODO: Support multiple `Shape` validators.
 
 formatType = require "formatType"
 Validator = require "Validator"
@@ -18,27 +19,36 @@ Either = Validator.Type "Either",
 
   test: (value) ->
     {types} = this
+    {constructor} = value if value?
 
-    index = -1
-    numTypes = types.length
+    for type in types
 
-    unless value?
-      while ++index < numTypes
-        type = types[index]
-        if type instanceof Validator
-          return yes if type.test value
-      return no
+      if type is constructor
+        return yes
 
-    while ++index < numTypes
-      type = types[index]
       if type instanceof Validator
         return yes if type.test value
-      else if type is value.constructor
-        return yes
+
     return no
 
   assert: (value, key) ->
-    return if @test value
-    return wrongType @types, key
+    {types} = this
+    {constructor} = value if value?
+
+    for type in types
+      return if type is constructor
+
+      if type instanceof Validator
+        error = type.assert value, key
+        return unless error
+
+        # Invalid type can be ignored.
+        if error instanceof TypeError
+          continue if ~error.message.indexOf "`#{key}`"
+
+        # Otherwise, the error is returned.
+        return error
+
+    return wrongType types, key
 
 module.exports = Either
